@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/id_detial_toolBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:fitsSystemWindows="true"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:layout_scrollFlags="scroll|enterAlways">
+            <!--app:theme="@style/MyToolBarStyle"-->
+
+            <TextView
+                android:id="@+id/tv_toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/newDetial_title"
+                android:textColor="@android:color/white"
+                android:textSize="23sp" />
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+        <LinearLayout
+            android:id="@+id/id_detial_contant_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/id_detial_title_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="爱空间打开了大家撒疯了快圣诞节福利卡时间的弗兰克"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/id_detial_time_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="2012-12-12"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="13sp"
+                    android:typeface="sans" />
+
+                <TextView
+                    android:id="@+id/id_detial_category_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="2012-12-12"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="13sp"
+                    android:typeface="sans" />
+
+                <TextView
+                    android:id="@+id/id_detial_count_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="2012-12-12"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="13sp"
+                    android:typeface="sans" />
+            </LinearLayout>
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/id_detial_img_sd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/id_detial_contant_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp"
+                android:text="　　正值秋季，温度逐渐下降，气不要使用太多。而且，一定要记住，胃喜燥恶寒，除了冰的东西以外，其他寒凉的食物像绿豆沙等也都不宜多吃。 　　南瓜性温，味甘。南瓜内含有维生素和果胶，果胶有很好的吸附性，能粘结和消除体内细菌毒素和其他有害物质，如重金属中的铅、汞和放射性元素，起到解毒作用。南瓜保护胃粘膜，帮助消化：南瓜所含果胶还可以保护胃肠道粘膜，免受粗糙食品刺激，促进溃疡面愈合，适宜于胃病患者。南瓜所含成分能促进胆汁分泌，加强胃肠蠕动。帮助食物消化。南瓜消除致癌物质：南瓜能消除致癌物质亚硝胺的突变作用，有防癌功效，并能帮助肝、肾功能的恢复，增强肝、肾细胞的再生能力。 　　蜂蜜味甘、性平，归脾、肺、大肠经。作用：补脾缓急，润肺止咳，润肠通便。宜于脾胃虚弱胃痛，津亏肠燥便秘，近代用于消化性溃疡。湿证、湿热证、胃胀腹胀、呕吐、便稀者忌食；不宜与葱、莴苣同食。　　随着生活节奏的加快，我们的肠胃承担着重大的压力，往往会出现一些肠胃问题，为我们的健康带来一定的影响。上面的秋季养胃食物能够帮助我们养出一个健康的肠胃，为我们的肠胃贴身代言。"
+                android:textSize="20sp"
+                android:typeface="sans" />
+
+        </LinearLayout>
+
+
+    </android.support.v4.widget.NestedScrollView>
+
+   <!-- TODO:底部栏-->
+
+
+</android.support.design.widget.CoordinatorLayout>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:fitsSystemWindows="true"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <!--app:theme="@style/MyToolBarStyle"-->
+
+        <TextView
+            android:id="@+id/tv_toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/tab_news"
+            android:textColor="@android:color/white"
+            android:textSize="23sp" />
+    </android.support.v7.widget.Toolbar>
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+         />
+
+
+    <RadioGroup
+        android:id="@+id/rg_bottomTap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/darker_gray"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/id_bottomTap_news"
+            style="@style/myRadioButtonStyle"
+            android:checked="true"
+            android:drawableTop="@drawable/tab_home"
+            android:text="@string/tab_news" />
+
+        <RadioButton
+            android:id="@+id/id_bottomTap_knowledge"
+            style="@style/myRadioButtonStyle"
+            android:drawableTop="@drawable/tab_newcenter"
+            android:text="@string/tab_knowledge" />
+
+        <RadioButton
+            android:id="@+id/id_bottomTap_food"
+            style="@style/myRadioButtonStyle"
+            android:drawableTop="@drawable/tab_smartservice"
+            android:text="@string/tab_food" />
+
+        <RadioButton
+            android:id="@+id/id_bottomTap_drug"
+            style="@style/myRadioButtonStyle"
+            android:drawableTop="@drawable/tab_govaffairs"
+            android:text="@string/tab_drug" />
+
+
+    </RadioGroup>
+</LinearLayout>
