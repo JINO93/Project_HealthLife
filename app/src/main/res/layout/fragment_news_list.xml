@@ -1,18 +1,24 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".zhbj.fragments.KnowledgeFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
-    <android.support.v7.widget.RecyclerView
-        android:clickable="true"
-        android:id="@+id/id_news_list_rv"
+    <com.cjj.MaterialRefreshLayout
+        android:id="@+id/id_news_refresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        />
+        app:isLoadMore="true">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/id_news_list_rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true" />
+    </com.cjj.MaterialRefreshLayout>
 
 
 </FrameLayout>

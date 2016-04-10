@@ -38,7 +38,7 @@ public abstract class BaseListFragment extends Fragment {
 //    protected List<T> datas;
 //    protected D tab;
 
-    public int showPage = 2;
+    public int showPage = 1;
     public int showItems = 20;
 
 
@@ -104,6 +104,32 @@ public abstract class BaseListFragment extends Fragment {
         map.put("limit", showItems);
         map.put("id", String.valueOf(id));
         return map;
+    }
+
+
+    protected void loadMoreData(String url){
+        Request.getInstance().post(url, buildMap(category.getId()), new RequestCallBack<List<ItemInfo>>() {
+            @Override
+            public void onPreLoad() {
+
+            }
+
+            @Override
+            public void onSuccess(List<ItemInfo> itemInfos) {
+
+            }
+
+
+            @Override
+            public void onError(Throwable ex) {
+
+            }
+
+            @Override
+            public void onFinish() {
+
+            }
+        });
     }
 
 

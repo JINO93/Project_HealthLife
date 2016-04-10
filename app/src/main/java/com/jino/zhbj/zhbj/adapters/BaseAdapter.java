@@ -15,14 +15,14 @@ public abstract class BaseAdapter<T, H extends BaseViewHolder> extends RecyclerV
 
     protected Context context;
     protected LayoutInflater mInflater;
-    protected List<T> t;
+    protected List<T> datas;
     protected int layoutID;
     private OnItemClickListener mListener;
 
     public BaseAdapter(Context context, List<T> t, int _layoutID) {
         this.context = context;
         this.mInflater = LayoutInflater.from(context);
-        this.t = t;
+        this.datas = t;
         layoutID = _layoutID;
     }
 
@@ -30,7 +30,7 @@ public abstract class BaseAdapter<T, H extends BaseViewHolder> extends RecyclerV
     public BaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         View view = mInflater.inflate(layoutID, null, false);
-        BaseViewHolder viewHolder = new BaseViewHolder(view,mListener);
+        BaseViewHolder viewHolder = new BaseViewHolder(view, mListener);
         return viewHolder;
     }
 
@@ -43,31 +43,64 @@ public abstract class BaseAdapter<T, H extends BaseViewHolder> extends RecyclerV
 
     @Override
     public int getItemCount() {
-        if(t==null||t.size()<0){
+        if (datas == null || datas.size() < 0) {
             return 0;
         }
-        return t.size();
+        return datas.size();
     }
-
 
 
     public T getData(int position) {
-        if(position>t.size()){
+        if (position > datas.size()) {
             return null;
         }
-        return t.get(position);
+        return datas.get(position);
     }
 
 
-    public void setOnItemClickListener(OnItemClickListener listener){
-        mListener=listener;
+    public void add(int position, List<T> datas) {
+
+        if (datas != null && datas.size() > 0) {
+
+            this.datas.addAll(position, datas);
+            notifyItemRangeInserted(position, datas.size());
+        }
+    }
+
+    public void remove(T t){
+        int position =datas.indexOf(t);
+        datas.remove(position);
+        notifyItemRemoved(position);
+    }
+
+    public void clear(){
+        datas.clear();
+        notifyDataSetChanged();
+    }
+
+
+    public void refreshData(List<T> datas){
+
+        clear();
+        add(0, datas);
+    }
+
+
+    public void loadMoreData(List<T> datas){
+        add(this.datas.size(),datas);
+    }
+
+
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        mListener = listener;
     }
 
 
     protected abstract void bindData(BaseViewHolder holder, T data);
 
-    public interface OnItemClickListener{
-        public void onItemClick(View v,int position);
+    public interface OnItemClickListener {
+        public void onItemClick(View v, int position);
     }
 
 }
