@@ -36,13 +36,13 @@ public class KnowledgeListFragment extends BaseListFragment {
         super.onCreate(savedInstanceState);
         category= (Category) getArguments().getSerializable(String.valueOf(this.hashCode()));
         LogUtils.d(category.toString());
+        initData(Constant.KNOWLEDGE_LIST_URL);
 
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        initData(Constant.KNOWLEDGE_LIST_URL);
     }
 
     @Override

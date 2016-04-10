@@ -53,16 +53,20 @@ public class MainActivity extends BaseAcitivity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId) {
                     case R.id.id_bottomTap_news:
+                        setToolbarTitle(getString(R.string.tab_news));
                         showFragment(1);
                         break;
                     case R.id.id_bottomTap_knowledge:
+                        setToolbarTitle(getString(R.string.tab_knowledge));
                         showFragment(2);
                         break;
 
                     case R.id.id_bottomTap_food:
+                        setToolbarTitle(getString(R.string.tab_food));
                         break;
 
                     case R.id.id_bottomTap_drug:
+                        setToolbarTitle(getString(R.string.tab_drug));
                         break;
 
                 }
@@ -72,20 +76,27 @@ public class MainActivity extends BaseAcitivity {
     }
 
     private void showFragment(int fragmentId) {
+        clearSelection();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
-        switch (fragmentId){
+        switch (fragmentId) {
             case 1:
 
-                if(newsFragment==null){
-                    newsFragment=new NewsFragment();
+                if (newsFragment == null) {
+                    newsFragment = new NewsFragment();
+                    fragmentTransaction.add(R.id.container,newsFragment);
+                } else {
+
+                    fragmentTransaction.show(newsFragment);
                 }
-                fragmentTransaction.replace(R.id.container, newsFragment, "news");
                 break;
             case 2:
-                if(knowledgeFragment==null){
-                    knowledgeFragment=new KnowledgeFragment();
+                if (knowledgeFragment == null) {
+                    knowledgeFragment = new KnowledgeFragment();
+                    fragmentTransaction.add(R.id.container,knowledgeFragment);
+                } else {
+
+                    fragmentTransaction.show(knowledgeFragment);
                 }
-                fragmentTransaction.replace(R.id.container, knowledgeFragment, "news");
                 break;
             case 3:
                 break;
@@ -93,6 +104,19 @@ public class MainActivity extends BaseAcitivity {
                 break;
         }
         fragmentTransaction.commit();
+    }
+
+
+    private void clearSelection(){
+        FragmentTransaction transaction = fm.beginTransaction();
+        if (newsFragment!=null){
+            transaction.hide(newsFragment);
+        }
+        if (knowledgeFragment!=null){
+            transaction.hide(knowledgeFragment);
+        }
+
+        transaction.commit();
     }
 
 

@@ -50,16 +50,10 @@ public abstract class BaseListFragment extends Fragment {
         loadingDialog = new ShapeLoadingDialog(getActivity());
         loadingDialog.setLoadingText("拼命加载中....");
         loadingDialog.setCanceledOnTouchOutside(false);
+        showLoading();
 //        category = (Category) getArguments().getSerializable(LIST_DATA);
 
 //        LogUtils.d(tab.toString());
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        showLoading();
-//        initData("");
     }
 
 
@@ -88,14 +82,9 @@ public abstract class BaseListFragment extends Fragment {
     }
 
 
-
-
-
-
-
-    protected void goDetialView(int position,String url) {
+    protected void goDetialView(int position, String url) {
         //TODO
-        Intent intent = setDetialData(position,url );
+        Intent intent = setDetialData(position, url);
         getActivity().startActivity(intent);
     }
 
@@ -150,7 +139,7 @@ public abstract class BaseListFragment extends Fragment {
     }
 
 
-    protected Intent setDetialData(int position,String url) {
+    protected Intent setDetialData(int position, String url) {
         ItemInfo newsInfo = infos.get(position);
         String imgUri = newsInfo.getImg();
         int newsID = newsInfo.getId();
@@ -159,7 +148,7 @@ public abstract class BaseListFragment extends Fragment {
         Intent intent = new Intent();
         intent.setClass(getContext(), ItemDetialActivity.class);
         Bundle itemDetial = new Bundle();
-        itemDetial.putCharSequence(Constant.KEY_ITEM_DETAIL_URL,url);
+        itemDetial.putCharSequence(Constant.KEY_ITEM_DETAIL_URL, url);
         itemDetial.putInt(Constant.KEY_ITEM_DETAIL_ID, newsID);
         itemDetial.putCharSequence(Constant.KEY_ITEM_DETAIL_IMG, imgUri);
         intent.putExtras(itemDetial);

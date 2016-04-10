@@ -38,13 +38,13 @@ public class NewsListFragment extends BaseListFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         category= (Category) getArguments().getSerializable(Constant.KEY_NEWS_TAB_DATA);
+        initData(Constant.NEWS_LIST_URL);
         LogUtils.d(category.toString());
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        initData(Constant.NEWS_LIST_URL);
         LogUtils.d(category.toString());
     }
 

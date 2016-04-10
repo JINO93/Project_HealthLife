@@ -14,6 +14,9 @@ import com.jino.zhbj.zhbj.models.ItemDetial;
 import com.jino.zhbj.zhbj.net.Request;
 import com.jino.zhbj.zhbj.net.RequestCallBack;
 import com.jino.zhbj.zhbj.utils.LogUtils;
+import com.komi.slider.Slider;
+import com.komi.slider.SliderConfig;
+import com.komi.slider.SliderUtils;
 import com.mingle.widget.ShapeLoadingDialog;
 
 import org.xutils.view.annotation.ContentView;
@@ -42,11 +45,14 @@ public class ItemDetialActivity extends BaseAcitivity {
     private String imgUrl;
     private ShapeLoadingDialog dialog;
     private ItemDetial newsDetial;
+    private SliderConfig config;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        config=new SliderConfig.Builder().slideExit(true).edge(true).build();
+        SliderUtils.attachActivity(this, config);
         initView();
         initData();
     }
@@ -85,10 +91,6 @@ public class ItemDetialActivity extends BaseAcitivity {
 
             }
 
-//            @Override
-//            public void onSuccess(String s) {
-//                LogUtils.d(s);
-//            }
 
             @Override
             public void onSuccess(final ItemDetial newsDetial) {
