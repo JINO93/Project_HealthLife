@@ -5,18 +5,16 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.jino.zhbj.R;
 import com.jino.zhbj.zhbj.Constane.Constant;
-import com.jino.zhbj.zhbj.models.NewsDetial;
+import com.jino.zhbj.zhbj.models.ItemDetial;
 import com.jino.zhbj.zhbj.net.Request;
 import com.jino.zhbj.zhbj.net.RequestCallBack;
 import com.jino.zhbj.zhbj.utils.LogUtils;
 import com.mingle.widget.ShapeLoadingDialog;
-import com.mingle.widget.ShapeLoadingView;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
@@ -25,7 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @ContentView(R.layout.activity_news_detial)
-public class NewsDetialActivity extends BaseAcitivity {
+public class ItemDetialActivity extends BaseAcitivity {
 
     @ViewInject(R.id.id_detial_toolBar)
     private Toolbar toolbar;
@@ -43,7 +41,7 @@ public class NewsDetialActivity extends BaseAcitivity {
     private SimpleDraweeView sd_Img;
     private String imgUrl;
     private ShapeLoadingDialog dialog;
-    private NewsDetial newsDetial;
+    private ItemDetial newsDetial;
 
 
     @Override
@@ -62,7 +60,7 @@ public class NewsDetialActivity extends BaseAcitivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NewsDetialActivity.this.finish();
+                ItemDetialActivity.this.finish();
             }
         });
 
@@ -75,12 +73,13 @@ public class NewsDetialActivity extends BaseAcitivity {
     }
 
     private void initData() {
-        int newsId = getIntent().getIntExtra(Constant.KEY_NEWS_DETAIL_ID, -1);
-        imgUrl = getIntent().getStringExtra(Constant.KEY_NEWS_DETAIL_IMG);
+        int newsId = getIntent().getIntExtra(Constant.KEY_ITEM_DETAIL_ID, -1);
+        imgUrl = getIntent().getStringExtra(Constant.KEY_ITEM_DETAIL_IMG);
+        String url = getIntent().getStringExtra(Constant.KEY_ITEM_DETAIL_URL);
 //        LogUtils.d(newsId+">>>>>"+imgUrl);
         Map<String, Object> params = new HashMap<>();
         params.put("id", String.valueOf(newsId));
-        Request.getInstance().post(Constant.NEWS_DETIALS_URL, params, new RequestCallBack<NewsDetial>() {
+        Request.getInstance().post(url, params, new RequestCallBack<ItemDetial>() {
             @Override
             public void onPreLoad() {
 
@@ -92,8 +91,8 @@ public class NewsDetialActivity extends BaseAcitivity {
 //            }
 
             @Override
-            public void onSuccess(final NewsDetial newsDetial) {
-                NewsDetialActivity.this.newsDetial = newsDetial;
+            public void onSuccess(final ItemDetial newsDetial) {
+                ItemDetialActivity.this.newsDetial = newsDetial;
                 LogUtils.d(newsDetial.toString());
                 loadData();
 

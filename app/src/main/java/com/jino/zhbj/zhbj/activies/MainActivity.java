@@ -53,8 +53,10 @@ public class MainActivity extends BaseAcitivity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId) {
                     case R.id.id_bottomTap_news:
+                        showFragment(1);
                         break;
                     case R.id.id_bottomTap_knowledge:
+                        showFragment(2);
                         break;
 
                     case R.id.id_bottomTap_food:
@@ -75,17 +77,21 @@ public class MainActivity extends BaseAcitivity {
             case 1:
 
                 if(newsFragment==null){
-//                    newsFragment
+                    newsFragment=new NewsFragment();
                 }
+                fragmentTransaction.replace(R.id.container, newsFragment, "news");
                 break;
             case 2:
+                if(knowledgeFragment==null){
+                    knowledgeFragment=new KnowledgeFragment();
+                }
+                fragmentTransaction.replace(R.id.container, knowledgeFragment, "news");
                 break;
             case 3:
                 break;
             case 4:
                 break;
         }
-        fragmentTransaction.replace(R.id.container, newsFragment, "news");
         fragmentTransaction.commit();
     }
 

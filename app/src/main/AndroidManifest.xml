@@ -21,7 +21,7 @@
         </activity>
         <activity android:name=".zhbj.activies.MainActivity" />
         <activity android:name=".zhbj.activies.GuideActivity"/>
-        <activity android:name=".zhbj.activies.NewsDetialActivity"/>
+        <activity android:name=".zhbj.activies.ItemDetialActivity"/>
     </application>
 
 </manifest>

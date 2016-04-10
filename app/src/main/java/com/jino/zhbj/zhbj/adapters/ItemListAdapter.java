@@ -7,21 +7,20 @@ import java.util.List;
 
 import com.jino.zhbj.R;
 import com.jino.zhbj.zhbj.Constane.Constant;
-import com.jino.zhbj.zhbj.models.NewsInfo;
-import com.jino.zhbj.zhbj.utils.LogUtils;
+import com.jino.zhbj.zhbj.models.ItemInfo;
 
 /**
  * Created by Administrator on 2016/4/7.
  */
-public class NewsListAdapter extends BaseAdapter<NewsInfo,BaseViewHolder> {
+public class ItemListAdapter extends BaseAdapter<ItemInfo,BaseViewHolder> {
 
 
-    public NewsListAdapter(Context context, List<NewsInfo> t) {
+    public ItemListAdapter(Context context, List<ItemInfo> t) {
         super(context, t, R.layout.item_news_list);
     }
 
     @Override
-    protected void bindData(BaseViewHolder holder, NewsInfo data) {
+    protected void bindData(BaseViewHolder holder, ItemInfo data) {
         String url= Constant.IMG_BASE_URL +data.getImg();
         holder.getSimpleDraweeView(R.id.iv_preview).setImageURI(Uri.parse(url));
         holder.getTextView(R.id.tv_itemDate).setText(data.getTime());

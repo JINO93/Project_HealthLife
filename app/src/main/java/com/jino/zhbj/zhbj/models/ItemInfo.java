@@ -3,7 +3,7 @@ package com.jino.zhbj.zhbj.models;
 /**
  * Created by Administrator on 2016/4/6.
  */
-public class NewsInfo extends Bean {
+public class ItemInfo extends Bean {
     private String title;
     private String img;
     private int count;
@@ -12,7 +12,7 @@ public class NewsInfo extends Bean {
     private String time;
     private int id;
 
-    public NewsInfo(String title, String img, int count, String time, int id) {
+    public ItemInfo(String title, String img, int count, String time, int id) {
         this.title = title;
         this.img = img;
         this.count = count;
@@ -62,7 +62,7 @@ public class NewsInfo extends Bean {
 
     @Override
     public String toString() {
-        return "NewsInfo{" +
+        return "ItemInfo{" +
                 "title='" + title + '\'' +
                 ", img='" + img + '\'' +
                 ", count=" + count +

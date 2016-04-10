@@ -5,8 +5,7 @@ import android.os.Looper;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonParseException;
-import com.jino.zhbj.zhbj.models.NewsDetial;
-import com.jino.zhbj.zhbj.utils.LogUtils;
+import com.jino.zhbj.zhbj.models.ItemDetial;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -126,7 +125,7 @@ public class Request {
             public void run() {
                 if (callBack.mType == String.class) {
                     callBack.onSuccess(result.toString());
-                } else if (callBack.mType == NewsDetial.class) {
+                } else if (callBack.mType == ItemDetial.class) {
 
                     JSONObject jsonObject = null;
                     try {
