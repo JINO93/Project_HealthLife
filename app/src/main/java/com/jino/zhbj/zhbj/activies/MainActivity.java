@@ -5,8 +5,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.jino.zhbj.R;
 import com.jino.zhbj.zhbj.fragments.BaseFragment;
@@ -29,6 +31,7 @@ public class MainActivity extends BaseAcitivity {
     KnowledgeFragment knowledgeFragment;
     NewsFragment newsFragment;
     FragmentManager fm;
+    long firstTime = 0;
 
 
     @Override
@@ -83,7 +86,7 @@ public class MainActivity extends BaseAcitivity {
 
                 if (newsFragment == null) {
                     newsFragment = new NewsFragment();
-                    fragmentTransaction.add(R.id.container,newsFragment);
+                    fragmentTransaction.add(R.id.container, newsFragment);
                 } else {
 
                     fragmentTransaction.show(newsFragment);
@@ -92,7 +95,7 @@ public class MainActivity extends BaseAcitivity {
             case 2:
                 if (knowledgeFragment == null) {
                     knowledgeFragment = new KnowledgeFragment();
-                    fragmentTransaction.add(R.id.container,knowledgeFragment);
+                    fragmentTransaction.add(R.id.container, knowledgeFragment);
                 } else {
 
                     fragmentTransaction.show(knowledgeFragment);
@@ -107,18 +110,30 @@ public class MainActivity extends BaseAcitivity {
     }
 
 
-    private void clearSelection(){
+    private void clearSelection() {
         FragmentTransaction transaction = fm.beginTransaction();
-        if (newsFragment!=null){
+        if (newsFragment != null) {
             transaction.hide(newsFragment);
         }
-        if (knowledgeFragment!=null){
+        if (knowledgeFragment != null) {
             transaction.hide(knowledgeFragment);
         }
 
         transaction.commit();
     }
 
+
+    @Override
+    public void onBackPressed() {
+        if ((System.currentTimeMillis() - firstTime) > 2000) {
+            Toast.makeText(getApplicationContext(), R.string.clickAgainExit, Toast.LENGTH_SHORT).show();
+            firstTime = System.currentTimeMillis();
+        } else {
+            this.finish();
+        }
+
+//        super.onBackPressed();
+    }
 
     private void setToolbarTitle(String title) {
         toolBarTitle.setText(title);

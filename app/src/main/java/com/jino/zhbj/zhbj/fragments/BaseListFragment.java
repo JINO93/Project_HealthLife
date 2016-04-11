@@ -34,6 +34,7 @@ public abstract class BaseListFragment extends Fragment {
     protected ShapeLoadingDialog loadingDialog;
     protected Category category;
     protected List<ItemInfo> infos;
+    protected boolean isVisible=false;
 
 //    protected List<T> datas;
 //    protected D tab;
@@ -43,6 +44,16 @@ public abstract class BaseListFragment extends Fragment {
 
 
     private boolean injected = false;
+
+
+//    @Override
+//    public void setUserVisibleHint(boolean isVisibleToUser) {
+//        super.setUserVisibleHint(isVisibleToUser);
+//        if(getUserVisibleHint()==true){
+//
+//        }
+//
+//    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

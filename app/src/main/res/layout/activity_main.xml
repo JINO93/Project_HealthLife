@@ -24,47 +24,68 @@
             android:textSize="23sp" />
     </android.support.v7.widget.Toolbar>
 
-    <FrameLayout
-        android:id="@+id/container"
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/id_mian_drawer"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-         />
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:id="@+id/container"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
 
 
-    <RadioGroup
-        android:id="@+id/rg_bottomTap"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/darker_gray"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
+            <RadioGroup
+                android:id="@+id/rg_bottomTap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/darker_gray"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
 
-        <RadioButton
-            android:id="@+id/id_bottomTap_news"
-            style="@style/myRadioButtonStyle"
-            android:checked="true"
-            android:drawableTop="@drawable/tab_home"
-            android:text="@string/tab_news" />
+                <RadioButton
+                    android:id="@+id/id_bottomTap_news"
+                    style="@style/myRadioButtonStyle"
+                    android:checked="true"
+                    android:drawableTop="@drawable/tab_home"
+                    android:text="@string/tab_news" />
 
-        <RadioButton
-            android:id="@+id/id_bottomTap_knowledge"
-            style="@style/myRadioButtonStyle"
-            android:drawableTop="@drawable/tab_newcenter"
-            android:text="@string/tab_knowledge" />
+                <RadioButton
+                    android:id="@+id/id_bottomTap_knowledge"
+                    style="@style/myRadioButtonStyle"
+                    android:drawableTop="@drawable/tab_newcenter"
+                    android:text="@string/tab_knowledge" />
 
-        <RadioButton
-            android:id="@+id/id_bottomTap_food"
-            style="@style/myRadioButtonStyle"
-            android:drawableTop="@drawable/tab_smartservice"
-            android:text="@string/tab_food" />
+                <RadioButton
+                    android:id="@+id/id_bottomTap_food"
+                    style="@style/myRadioButtonStyle"
+                    android:drawableTop="@drawable/tab_smartservice"
+                    android:text="@string/tab_food" />
 
-        <RadioButton
-            android:id="@+id/id_bottomTap_drug"
-            style="@style/myRadioButtonStyle"
-            android:drawableTop="@drawable/tab_govaffairs"
-            android:text="@string/tab_drug" />
+                <RadioButton
+                    android:id="@+id/id_bottomTap_drug"
+                    style="@style/myRadioButtonStyle"
+                    android:drawableTop="@drawable/tab_govaffairs"
+                    android:text="@string/tab_drug" />
 
 
-    </RadioGroup>
+            </RadioGroup>
+        </LinearLayout>
+
+        <android.support.design.widget.NavigationView
+            android:id="@+id/id_mian_navigate"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start" />
+
+    </android.support.v4.widget.DrawerLayout>
+
+
 </LinearLayout>

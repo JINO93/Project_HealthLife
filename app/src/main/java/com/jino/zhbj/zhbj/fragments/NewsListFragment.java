@@ -2,10 +2,13 @@ package com.jino.zhbj.zhbj.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.cjj.MaterialRefreshLayout;
@@ -47,15 +50,18 @@ public class NewsListFragment extends BaseListFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         category= (Category) getArguments().getSerializable(Constant.KEY_NEWS_TAB_DATA);
-        initData(Constant.NEWS_LIST_URL);
         LogUtils.d(category.toString());
     }
 
+    @Nullable
     @Override
-    public void onResume() {
-        super.onResume();
-        LogUtils.d(category.toString());
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        initData(Constant.NEWS_LIST_URL);
+        return super.onCreateView(inflater, container, savedInstanceState);
     }
+
+
 
 
     protected void initView() {

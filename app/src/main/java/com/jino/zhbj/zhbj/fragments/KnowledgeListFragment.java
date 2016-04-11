@@ -2,12 +2,15 @@ package com.jino.zhbj.zhbj.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.cjj.MaterialRefreshLayout;
@@ -43,27 +46,35 @@ public class KnowledgeListFragment extends BaseListFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         category = (Category) getArguments().getSerializable(String.valueOf(this.hashCode()));
-        LogUtils.d(category.toString());
-        initData(Constant.KNOWLEDGE_LIST_URL);
+//        LogUtils.d("onCreate");
 
     }
 
     @Override
     public void onResume() {
         super.onResume();
+//        LogUtils.d(new String((adapter.equals(null))?"Yes":"no"));
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+//        LogUtils.d("onCreateView");
+        initData(Constant.KNOWLEDGE_LIST_URL);
+        return super.onCreateView(inflater, container, savedInstanceState);
     }
 
     @Override
     protected void initView() {
 
-        LogUtils.d(infos.toString());
+//        LogUtils.d(infos.toString());
         adapter = new ItemListAdapter(getContext(), infos);
         adapter.setOnItemClickListener(new BaseAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View v, int position) {
                 goDetialView(position, Constant.KNOWLEDGE_DETIALS_URL);
-                LogUtils.d("V:" + v + "..." + position);
-                LogUtils.d(infos.get(position).toString());
+//                LogUtils.d("V:" + v + "..." + position);
+//                LogUtils.d(infos.get(position).toString());
             }
         });
         newsList.setAdapter(adapter);
@@ -138,8 +149,29 @@ public class KnowledgeListFragment extends BaseListFragment {
         });
     }
 
+    @Override
+    public void onDetach() {
+        super.onDetach();
 
-//    @Override
+        LogUtils.d("onDetach");
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        LogUtils.d("onDestroyView");
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        LogUtils.d("onDestroy");
+    }
+
+
+
+
+    //    @Override
 //    Intent setDetialData(int position) {
 //        return null;
 //    }
