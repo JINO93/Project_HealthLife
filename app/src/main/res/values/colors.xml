@@ -5,4 +5,5 @@
     <color name="colorAccent">#FF4081</color>
     <color name="list_bg_pressed">#44000000</color>
     <color name="background">#eaeaeaea</color>
+    <color name="list_divider">#dcdcdc</color>
 </resources>

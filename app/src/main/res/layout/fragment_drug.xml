@@ -7,7 +7,7 @@
     tools:context=".hl.fragments.KnowledgeFragment">
 
     <android.support.design.widget.TabLayout
-        android:id="@+id/id_knowledge_topTaps"
+        android:id="@+id/id_drug_topTaps"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:tabMode="scrollable"
@@ -18,7 +18,7 @@
     <android.support.v4.view.ViewPager
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:id="@+id/id_knowledge_vp"
+        android:id="@+id/id_drug_vp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

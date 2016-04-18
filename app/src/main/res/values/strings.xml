@@ -15,6 +15,11 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="nullData">已经到底了！！</string>
+    <string name="isBottom">已经到底了！！</string>
+    <string name="nullData">Sorry!!这里没东西看..</string>
     <string name="clickAgainExit">再按一次退出</string>
+    <string name="myFavour">我的收藏</string>
+    <string name="about">关于</string>
+    <string name="exit">退出</string>
+    <string name="neededSource">所需材料:</string>
 </resources>

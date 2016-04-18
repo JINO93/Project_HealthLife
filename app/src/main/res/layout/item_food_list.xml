@@ -4,16 +4,15 @@
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingLeft="8dp"
-    android:paddingRight="8dp"
     android:layout_marginTop="5dp"
     android:clickable="true"
     android:foreground="?android:attr/selectableItemBackground"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
     custom:cardCornerRadius="5dp"
     custom:cardPreventCornerOverlap="true"
     custom:cardUseCompatPadding="true"
-    custom:contentPadding="10dp"
-    >
+    custom:contentPadding="10dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -38,20 +37,34 @@
             android:textSize="22sp" />
 
         <TextView
-            android:id="@+id/tv_ViewCount"
+            android:id="@+id/tv_category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_itemTitle"
+            android:layout_marginTop="5dp"
             android:layout_toRightOf="@id/iv_preview"
+            android:ellipsize="end"
+            android:singleLine="true"
             android:text="Desc"
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/tv_itemDate"
-            android:layout_width="match_parent"
+            android:id="@+id/tv_scoure"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_ViewCount"
+            android:layout_below="@id/tv_category"
+            android:layout_marginTop="5dp"
             android:layout_toRightOf="@id/iv_preview"
+            android:text="1999-09-15"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             android:text="1999-09-15"
             android:textSize="18sp" />
     </RelativeLayout>

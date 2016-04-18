@@ -1,4 +1,4 @@
-package com.jino.zhbj;
+package com.jino.healthLife;
 
 import org.junit.Test;
 

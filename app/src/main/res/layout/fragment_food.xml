@@ -1,0 +1,46 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".hl.fragments.KnowledgeFragment">
+
+
+
+    <com.jino.healthLife.hl.view.ExpandableMenu
+
+        android:id="@+id/id_top_menu"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:textOff="@null"
+        android:textOn="@null"
+        android:background="@drawable/list_menu_btn_selector"
+        android:singleLine="true"
+        android:textColor="@android:color/black" />
+
+    <com.cjj.MaterialRefreshLayout
+        android:id="@+id/id_detial_refreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:overlay="false"
+        app:wave_show="true"
+        app:wave_color="@color/background"
+        app:isLoadMore="true">
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:id="@+id/id_food_list_rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+             />
+    </com.cjj.MaterialRefreshLayout>
+
+
+
+
+</LinearLayout>
