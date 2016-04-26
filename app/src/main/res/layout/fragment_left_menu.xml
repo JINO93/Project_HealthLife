@@ -10,18 +10,18 @@
         android:background="@color/colorPrimary">
 
         <ImageView
+            android:clickable="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:foreground="?attr/selectableItemBackground"
-            android:src="@drawable/defult_user" />
+            android:background="?attr/selectableItemBackground"
+            android:src="@drawable/icon_avatar" />
 
     </RelativeLayout>
 
     <TextView
         style="@style/LeftMenuTextViewType"
-        android:drawableLeft="@drawable/ic_data_loaded"
-        android:drawablePadding="10dp"
+        android:drawableLeft="@drawable/ic_theme"
         android:text="@string/myFavour" />
 
     <TextView
@@ -38,9 +38,11 @@
     <TextView
 
         style="@style/LeftMenuTextViewType"
+        android:drawableLeft="@drawable/ic_about"
         android:text="@string/about" />
 
     <TextView
+        android:drawableLeft="@drawable/ic_exit"
         style="@style/LeftMenuTextViewType"
         android:text="@string/exit" />
 
